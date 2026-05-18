@@ -40,6 +40,7 @@
   --color-navy-muted: var(--navy-muted);
   --color-risk-low: var(--risk-low);
   --color-risk-medium: var(--risk-medium);
+  --color-risk-warning: var(--risk-warning);
   --color-risk-high: var(--risk-high);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -79,7 +80,10 @@
   --navy-muted: hsl(210 20% 60%);
   --risk-low: hsl(140 60% 45%);
   --risk-medium: hsl(45 95% 55%);
+  --risk-warning: hsl(28 90% 56%);
   --risk-high: hsl(0 75% 55%);
+  --gauge-bg-top: 0 0% 87%;
+  --gauge-bg-bottom: 0 0% 100%;
   --chart-1: hsl(180 35% 30%);
   --chart-2: hsl(280 60% 45%);
   --chart-3: hsl(20 85% 55%);

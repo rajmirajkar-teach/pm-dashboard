@@ -1,3 +1,5 @@
+import { useId } from 'react'
+
 import { cn } from '@/lib/utils'
 
 const sizeClass = {
@@ -7,10 +9,10 @@ const sizeClass = {
 }
 
 const segments = [
-  { start: -180, end: -132, color: 'var(--risk-low)' },
-  { start: -130, end: -92, color: 'var(--risk-medium)' },
-  { start: -90, end: -52, color: 'var(--chart-3)' },
-  { start: -50, end: 0, color: 'var(--risk-high)' },
+  { start: -180, end: -138.5, color: 'var(--risk-low)' },
+  { start: -135, end: -93.5, color: 'var(--risk-medium)' },
+  { start: -90, end: -48.5, color: 'var(--risk-warning)' },
+  { start: -45, end: 0, color: 'var(--risk-high)' },
 ]
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
@@ -39,6 +41,29 @@ function describeArc(centerX, centerY, radius, startAngle, endAngle) {
     1,
     end.x,
     end.y,
+  ].join(' ')
+}
+
+function describeInterior(centerX, centerY, radius) {
+  const start = polarToCartesian(centerX, centerY, radius, -180)
+  const end = polarToCartesian(centerX, centerY, radius, 0)
+
+  return [
+    'M',
+    start.x,
+    start.y,
+    'A',
+    radius,
+    radius,
+    0,
+    0,
+    1,
+    end.x,
+    end.y,
+    'L',
+    start.x,
+    start.y,
+    'Z',
   ].join(' ')
 }
 
@@ -78,26 +103,43 @@ export default function GaugeMeter({
 }) {
   const clampedValue = Math.min(max, Math.max(0, value))
   const angle = getNeedleAngle(clampedValue, max)
+  const interiorGradientId = useId().replace(/:/g, '')
 
   return (
     <div className={cn('flex flex-col items-center', className)}>
       <div className={cn('flex flex-col items-center', sizeClass[size])}>
         <svg
-          className="h-[132px] w-full overflow-visible drop-shadow-[0_11px_18px_rgba(18,22,25,0.18)]"
+          className="h-[132px] w-full overflow-visible"
           viewBox="0 0 240 142"
           role="img"
           aria-label={`${label}: ${valueLabel ?? `${clampedValue}%`}`}
         >
-          {segments.map((segment) => (
-            <path
-              key={`${segment.start}-${segment.end}`}
-              d={describeArc(120, 132, 106, segment.start, segment.end)}
-              fill="none"
-              stroke={segment.color}
-              strokeLinecap="butt"
-              strokeWidth="9"
-            />
-          ))}
+          <defs>
+            <linearGradient
+              id={interiorGradientId}
+              gradientUnits="userSpaceOnUse"
+              x1="120"
+              x2="120"
+              y1="31"
+              y2="132"
+            >
+              <stop offset="0%" stopColor="hsl(var(--gauge-bg-top))" />
+              <stop offset="100%" stopColor="hsl(var(--gauge-bg-bottom))" />
+            </linearGradient>
+          </defs>
+          <path d={describeInterior(120, 132, 101)} fill={`url(#${interiorGradientId})`} />
+          <g>
+            {segments.map((segment) => (
+              <path
+                key={`${segment.start}-${segment.end}`}
+                d={describeArc(120, 132, 106, segment.start, segment.end)}
+                fill="none"
+                stroke={segment.color}
+                strokeLinecap="butt"
+                strokeWidth="9"
+              />
+            ))}
+          </g>
           <text
             fill="#333333"
             fontFamily="Roboto, ui-sans-serif, system-ui, sans-serif"
