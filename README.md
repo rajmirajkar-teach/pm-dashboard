@@ -1,16 +1,57 @@
-# React + Vite
+# Predictive Maintenance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard Preview
 
-Currently, two official plugins are available:
+A predictive maintenance dashboard for industrial equipment monitoring, built from Figma designs using an AI-assisted workflow.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[Live demo](https://pm-dashboard-j1i6.vercel.app) · [Design system](https://pm-dashboard-j1i6.vercel.app/design-system)
 
-## React Compiler
+## Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React
+Vite
+Tailwind CSS
+Vercel
 
-## Expanding the ESLint configuration
+## The Story
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+I am a product designer with no prior coding experience. I built this entire dashboard using Cursor + AI as a collaborator, translating my Figma designs into a working, deployed React application.
+
+Cursor read the Figma file directly through the Figma MCP plugin. I used Cursor's agent mode for major builds, Cmd+K for inline edits, and `.cursorrules` to keep the AI aligned with my design system. The result is a portfolio-ready product UI that moved from design file to production deployment through an AI-assisted workflow.
+
+## What It Does
+
+- Custom design system extracted from Figma: navy brand chrome, semantic risk colors, and Roboto typography.
+- 12 affected-store cards with animated SVG risk gauges built as a reusable component.
+- KPI summary cards for total affected units, anomaly type, anomaly duration, and feedback today.
+- Multi-page routing: `/` for the dashboard and `/design-system` for token documentation.
+- Responsive layout tuned for dashboard review and presentation.
+- Vercel deployment with auto-redeploy from GitHub.
+
+## Tech Stack
+
+- React 19 + Vite
+- Tailwind CSS v4
+- shadcn/ui, New York style
+- React Router
+- Roboto via Google Fonts
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the local URL printed by Vite, usually `http://localhost:5173`.
+
+## What I Learned
+
+- How to speak to AI in design language rather than developer language.
+- How to iterate visually with annotated screenshots and precise UI feedback.
+- When to ship a working product and when to polish further.
+- The full GitHub + Vercel deployment workflow, from local commit to live site.
+
+## Acknowledgments
+
+Built with Cursor as the AI-assisted development environment and Anthropic models as coding collaborators.
