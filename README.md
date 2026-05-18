@@ -6,13 +6,13 @@ A predictive maintenance dashboard for industrial equipment monitoring, built fr
 
 [Live demo](https://pm-dashboard-j1i6.vercel.app) · [Design system](https://pm-dashboard-j1i6.vercel.app/design-system)
 
-## Built With
+## Tech Stack
 
 - React 19 + Vite
 - Tailwind CSS v4
 - shadcn/ui (New York style)
 - React Router
-- Roboto (Google Fonts)
+- Roboto via Google Fonts
 - Vercel (hosting + auto-deploy)
 - Figma + Figma MCP plugin (design source)
 
@@ -28,14 +28,6 @@ This dashboard was built by a product designer using Cursor with AI as a coding 
 - Multi-page routing: `/` for the dashboard and `/design-system` for token documentation.
 - Responsive layout tuned for dashboard review and presentation.
 - Vercel deployment with auto-redeploy from GitHub.
-
-## Tech Stack
-
-- React 19 + Vite
-- Tailwind CSS v4
-- shadcn/ui, New York style
-- React Router
-- Roboto via Google Fonts
 
 ## Running Locally
 
