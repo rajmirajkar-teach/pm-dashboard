@@ -1,6 +1,6 @@
 # Predictive Maintenance Dashboard
 
-Dashboard Preview
+![Dashboard Preview](./screenshots/dashboard-preview.png)
 
 A predictive maintenance dashboard for industrial equipment monitoring, built from Figma designs using an AI-assisted workflow.
 
@@ -8,16 +8,17 @@ A predictive maintenance dashboard for industrial equipment monitoring, built fr
 
 ## Built With
 
-React
-Vite
-Tailwind CSS
-Vercel
+- React 19 + Vite
+- Tailwind CSS v4
+- shadcn/ui (New York style)
+- React Router
+- Roboto (Google Fonts)
+- Vercel (hosting + auto-deploy)
+- Figma + Figma MCP plugin (design source)
 
 ## The Story
 
-I am a product designer with no prior coding experience. I built this entire dashboard using Cursor + AI as a collaborator, translating my Figma designs into a working, deployed React application.
-
-Cursor read the Figma file directly through the Figma MCP plugin. I used Cursor's agent mode for major builds, Cmd+K for inline edits, and `.cursorrules` to keep the AI aligned with my design system. The result is a portfolio-ready product UI that moved from design file to production deployment through an AI-assisted workflow.
+This dashboard was built by a product designer using Cursor with AI as a coding collaborator — no traditional development experience required. The Figma file was read directly through Cursor's Figma MCP plugin, and the React app was assembled through agent mode, Cmd+K inline edits, and a `.cursorrules` file that kept the AI aligned with the design system.
 
 ## What It Does
 
